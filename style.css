@@ -5,7 +5,7 @@
   --hijau-tua: #1F4038;   /* warna utama: navbar, judul, tombol */
   --hijau-muda: #2A9D8F;  /* warna aksen: link, garis, hover */
   --putih: #f5f7f5;
-  --abu-bg: #F5F7F5;      /* warna latar halaman */
+  --abu-bg: #bfc9c7;      /* warna latar halaman */
   --abu-teks: #555555;    /* warna teks paragraf */
 }
 
@@ -246,7 +246,7 @@ ul{
    ========================================================= */
 .contact{
   text-align: center;
-  padding: 60px 5%;
+  padding: 60px 10%;
   max-width: 600px;
   margin: 0 auto;
 }
