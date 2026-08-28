@@ -1,15 +1,19 @@
-
-
+/* =========================================================
+   HidupSehat - style.css
+   Cuma pakai 5 warna (lihat di bawah) dan setiap bagian
+   halaman punya blok CSS-nya sendiri, urut dari atas ke
+   bawah sesuai urutan section di HTML.
+   ========================================================= */
 
 :root{
-  --hijau-tua: #1F4038;   /* warna utama: navbar, judul, tombol */
-  --hijau-muda: #2A9D8F;  /* warna aksen: link, garis, hover */
-  --putih: #f5f7f5;
-  --abu-bg: #bfc9c7;      /* warna latar halaman */
-  --abu-teks: #555555;    /* warna teks paragraf */
+  --hijau-tua: #1F4038;   /* navbar teks, judul, tombol */
+  --hijau-muda: #2A9D8F;  /* warna aksen: link, angka, hover */
+  --terang: #f5f7f5;      /* latar kartu & navbar */
+  --gelap-bg: #bfc9c7;    /* latar belakang halaman */
+  --teks: #555555;        /* warna teks paragraf */
 }
 
-/* --- Reset dasar --- */
+/* --- Dasar --- */
 *{
   margin: 0;
   padding: 0;
@@ -18,64 +22,58 @@
 
 body{
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--abu-bg);
-  color: var(--abu-teks);
+  background-color: var(--gelap-bg);
+  color: var(--teks);
   line-height: 1.6;
 }
 
-h1, h2, h3{
-  color: var(--hijau-tua);
-}
+h1, h2, h3{ color: var(--hijau-tua); }
+a{ text-decoration: none; color: inherit; }
+ul{ list-style: none; }
 
-a{
-  text-decoration: none;
-  color: inherit;
+/* Dipakai berkali-kali: judul kecil di atas tiap section */
+.section-title{ text-align: center; margin-bottom: 40px; }
+.section-title p{
+  color: var(--hijau-muda);
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
+.section-title h2{ font-size: 1.8rem; }
 
-ul{
-  list-style: none;
+/* Tombol, dipakai di hero & kontak */
+.btn{
+  display: inline-block;
+  background-color: var(--hijau-tua);
+  color: var(--terang);
+  padding: 12px 26px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
+.btn:hover{ background-color: var(--hijau-muda); }
 
 /* =========================================================
-   Navbar
+   1. Navbar
    ========================================================= */
 .navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--putih);
+  background-color: var(--terang);
   padding: 15px 5%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
 }
-
-.logo{
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--hijau-tua);
-}
-
-.logo span{
-  color: var(--hijau-muda);
-}
-
-.nav-menu{
-  display: flex;
-  gap: 25px;
-}
-
-.nav-menu a{
-  font-weight: 500;
-}
-
-.nav-menu a:hover{
-  color: var(--hijau-muda);
-}
-
+.logo{ font-size: 1.4rem; font-weight: bold; color: var(--hijau-tua); }
+.logo span{ color: var(--hijau-muda); }
+.nav-menu{ display: flex; gap: 25px; }
+.nav-menu a{ font-weight: 500; }
+.nav-menu a:hover{ color: var(--hijau-muda); }
 .dark-btn{
   border: none;
-  background-color: var(--abu-bg);
+  background-color: var(--gelap-bg);
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -84,7 +82,7 @@ ul{
 }
 
 /* =========================================================
-   Hero (bagian atas / beranda)
+   2. Hero (beranda)
    ========================================================= */
 .hero{
   display: flex;
@@ -92,122 +90,49 @@ ul{
   justify-content: space-between;
   gap: 30px;
   padding: 60px 5%;
-  text-align: left;
 }
-
 .subtitle{
   color: var(--hijau-muda);
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
-
-.hero h1{
-  font-size: 2.3rem;
-  margin-bottom: 15px;
-}
-
-.hero h1 span{
-  color: var(--hijau-muda);
-}
-
-.hero-content p{
-  max-width: 450px;
-  margin-bottom: 20px;
-}
-
-.hero-icon{
-  font-size: 5rem;
-}
-
-/* --- Tombol (dipakai di hero & kontak) --- */
-.btn{
-  display: inline-block;
-  background-color: var(--hijau-tua);
-  color: var(--putih);
-  padding: 12px 26px;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.btn:hover{
-  background-color: var(--hijau-muda);
-}
+.hero h1{ font-size: 2.3rem; margin-bottom: 15px; }
+.hero h1 span{ color: var(--hijau-muda); }
+.hero-content p{ max-width: 450px; margin-bottom: 20px; }
+.hero-icon{ font-size: 5rem; }
 
 /* =========================================================
-   Section umum (dipakai di "Tentang")
+   3. Tentang (kartu info)
    ========================================================= */
 .section{
   padding: 60px 5%;
   max-width: 1100px;
   margin: 0 auto;
 }
-
-.section-title{
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.section-title p{
-  color: var(--hijau-muda);
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
-
-.section-title h2{
-  font-size: 1.8rem;
-}
-
-/* --- Kartu info --- */
 .cards{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
-
 .card{
-  background-color: var(--putih);
+  background-color: var(--terang);
   border-radius: 10px;
   padding: 25px 20px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.card:hover{
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
-
-.card .icon{
-  font-size: 2rem;
-  min-height: 2.4rem;   /* biar kartu tetap rapi walau icon-nya kosong */
-  margin-bottom: 12px;
-}
-
-.card h3{
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
+.card:hover{ transform: translateY(-5px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+.card .icon{ font-size: 2rem; min-height: 2.4rem; margin-bottom: 12px; }
+.card h3{ font-size: 1.1rem; margin-bottom: 8px; }
 
 /* =========================================================
-   Tips (kebiasaan sehat)
+   4. Tips (kebiasaan harian)
    ========================================================= */
-.tips-section{
-  background-color: var(--hijau-tua);
-  padding: 60px 5%;
-}
-
-.tips-section .section-title p{
-  color: #ffffffaa;
-}
-
-.tips-section .section-title h2{
-  color: var(--putih);
-}
-
+.tips-section{ background-color: var(--hijau-tua); padding: 60px 5%; }
+.tips-section .section-title p{ color: #ffffffaa; }
+.tips-section .section-title h2{ color: var(--terang); }
 .tips-container{
   max-width: 1100px;
   margin: 0 auto;
@@ -215,7 +140,6 @@ ul{
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
-
 .tip{
   display: flex;
   gap: 15px;
@@ -223,26 +147,12 @@ ul{
   padding: 20px;
   border-radius: 10px;
 }
-
-.tip span{
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--hijau-muda);
-}
-
-.tip h3{
-  color: var(--putih);
-  font-size: 1rem;
-  margin-bottom: 5px;
-}
-
-.tip p{
-  color: #ffffffcc;
-  font-size: 0.9rem;
-}
+.tip span{ font-size: 1.5rem; font-weight: bold; color: var(--hijau-muda); }
+.tip h3{ color: var(--terang); font-size: 1rem; margin-bottom: 5px; }
+.tip p{ color: #ffffffcc; font-size: 0.9rem; }
 
 /* =========================================================
-   Kontak
+   5. Kontak
    ========================================================= */
 .contact{
   text-align: center;
@@ -250,32 +160,14 @@ ul{
   max-width: 600px;
   margin: 0 auto;
 }
-
-.contact p{
-  margin: 15px 0 25px;
-}
+.contact p{ margin: 15px 0 25px; }
 
 /* =========================================================
-   Responsif (layar kecil / HP)
+   6. Layar kecil / HP
    ========================================================= */
 @media (max-width: 768px){
-  .hero{
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-content p{
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .navbar{
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .nav-menu{
-    gap: 15px;
-    font-size: 0.9rem;
-  }
+  .hero{ flex-direction: column; text-align: center; }
+  .hero-content p{ margin-left: auto; margin-right: auto; }
+  .navbar{ flex-wrap: wrap; gap: 10px; }
+  .nav-menu{ gap: 15px; font-size: 0.9rem; }
 }
