@@ -1,9 +1,4 @@
-/* =========================================================
-   HidupSehat - style.css
-   Cuma pakai 5 warna (lihat di bawah) dan setiap bagian
-   halaman punya blok CSS-nya sendiri, urut dari atas ke
-   bawah sesuai urutan section di HTML.
-   ========================================================= */
+
 
 :root{
   --hijau-tua: #1F4038;   /* navbar teks, judul, tombol */
@@ -170,4 +165,70 @@ ul{ list-style: none; }
   .hero-content p{ margin-left: auto; margin-right: auto; }
   .navbar{ flex-wrap: wrap; gap: 10px; }
   .nav-menu{ gap: 15px; font-size: 0.9rem; }
+} 
+/* --- Efek entrance untuk konten hero --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content .subtitle,
+.hero-content h1,
+.hero-content p,
+.hero-content .btn {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards;
+}
+.hero-content .subtitle { animation-delay: 0.1s; }
+.hero-content h1        { animation-delay: 0.3s; }
+.hero-content p         { animation-delay: 0.5s; }
+.hero-content .btn      { animation-delay: 0.7s; }
+
+/* --- Efek melayang untuk ikon hero --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+.hero-icon {
+  animation: float 3.5s ease-in-out infinite;
+  animation-delay: 0.9s; /* muncul setelah teks selesai fade-in */
+}
+
+/* --- Blob gradient dekoratif di belakang hero --- */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, var(--hijau-muda) 0%, transparent 70%);
+  opacity: 0.25;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-content,
+.hero-icon {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Hover tombol jadi lebih hidup --- */
+.btn {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
